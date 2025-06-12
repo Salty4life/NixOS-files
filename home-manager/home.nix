@@ -10,7 +10,7 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
-
+    ./programs.nix
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
@@ -25,7 +25,7 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     vlc
-    discord
+    (discord.override {withMoonlight = true;})
     wget
     (prismlauncher.override {
       jdks = with pkgs; [
@@ -41,7 +41,6 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
