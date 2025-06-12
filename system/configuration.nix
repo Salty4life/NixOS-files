@@ -1,15 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
+  config,
+  pkgs,
+  inputs,
+  self,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -85,9 +88,9 @@
   users.users.salty = {
     isNormalUser = true;
     description = "salty";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -115,11 +118,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vlc
-  git
-  discord
-  # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  wget
+    git
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -149,5 +149,9 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  home-manager.users.salty = import ../home-manager/home.nix;
+  home-manager = {
+    users.salty = import ../home-manager/home.nix;
+    extraSpecialArgs = {inherit inputs self;};
+    useGlobalPkgs = true;
+  };
 }
