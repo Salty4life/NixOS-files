@@ -2,19 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "padora-mobile"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -93,14 +94,32 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  #Install Tailscale VPN
+  services.tailscale.enable = true;
+
+  programs.nh = {
+    enable = true;
+    flake = "/home/salty/nixos";
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 30d";
+    };
+  };
+
+  # Enable "Experimental Features" a.k.a. flake
+  nix.settings.experimental-features = "nix-command flakes pipe-operators";
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+  vlc
+  git
+  discord
+  # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -130,4 +149,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
+  home-manager.users.salty = import ../home-manager/home.nix;
 }

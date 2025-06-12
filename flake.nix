@@ -1,0 +1,30 @@
+{
+  description = "Salty's nixos config";
+
+  inputs = {
+    # Nixpkgs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Home manager
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = inputs: {
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      # FIXME replace with your hostname
+      padora-mobile = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          self = inputs.self;
+        };
+        # > Our main nixos configuration file <
+        modules = [./system/configuration.nix];
+      };
+    };
+  };
+}
