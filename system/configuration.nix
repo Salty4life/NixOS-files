@@ -90,11 +90,18 @@
     extraGroups = ["networkmanager" "wheel"];
   };
 
+  # Enable TLP to limit battery charging to 60% in order to protect the laptop battery
+  services.tlp.enable = true;
+  services.tlp.settings.STOP_CHARGE_THRESH_BAT0 = 60;
+
   # Install firefox.
   programs.firefox.enable = true;
 
-  #Install Tailscale VPN
-  services.tailscale.enable = true;
+  #Install Tailscale VPN and enable routes from the network
+  services.tailscale = {
+    enable = true;
+    extraUpFlags = ["--accept-routes"];
+  };
 
   programs.nh = {
     enable = true;

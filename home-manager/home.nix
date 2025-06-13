@@ -25,7 +25,9 @@
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
     vlc
-    (discord.override {withMoonlight = true;})
+    (discord.override {
+      withMoonlight = true;
+    })
     wget
     (prismlauncher.override {
       jdks = with pkgs; [
@@ -37,6 +39,12 @@
     krita
     alejandra # formatter
     nixd # nix language server
+    protonmail-desktop
+    protonvpn-gui
+    blender
+    openscad
+    wpsoffice
+    vrcx
   ];
 
   # Enable home-manager and git
