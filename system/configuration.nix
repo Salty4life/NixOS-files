@@ -158,4 +158,10 @@
     extraSpecialArgs = {inherit inputs self;};
     useGlobalPkgs = true;
   };
+
+  # Catppuccin system config
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
 }
