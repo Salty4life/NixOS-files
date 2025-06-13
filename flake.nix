@@ -3,7 +3,14 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
+
+    # NixOS Hardware
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
 
     # Home manager
     home-manager = {
@@ -22,6 +29,7 @@
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     # Nixpkgs XR
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";
@@ -40,7 +48,9 @@
           self = inputs.self;
         };
         # > Our main nixos configuration file <
-        modules = [./system/configuration.nix];
+        modules = [
+          ./system/configuration.nix
+        ];
       };
     };
   };

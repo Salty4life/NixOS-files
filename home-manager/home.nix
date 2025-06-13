@@ -38,7 +38,7 @@
         openjdk17-bootstrap
       ];
     })
-
+    rustdesk
     btop
     krita
     alejandra # formatter
