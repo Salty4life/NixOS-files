@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+    inputs.catppuccin.nixosModules.catppuccin
   ];
 
   # Bootloader.
@@ -92,7 +93,7 @@
 
   # Enable TLP to limit battery charging to 60% in order to protect the laptop battery
   services.tlp.enable = true;
-  services.tlp.settings.STOP_CHARGE_THRESH_BAT0 = 60;
+  services.tlp.settings.STOP_CHARGE_THRESH_BAT1 = 60;
 
   # Install firefox.
   programs.firefox.enable = true;
