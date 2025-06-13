@@ -10,6 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./common
     inputs.home-manager.nixosModules.home-manager
     inputs.catppuccin.nixosModules.catppuccin
   ];
@@ -163,5 +164,7 @@
   catppuccin = {
     enable = true;
     flavor = "mocha";
+    accent = "sapphire";
+    cache.enable = true;
   };
 }

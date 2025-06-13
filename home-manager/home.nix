@@ -11,7 +11,8 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
     ./programs.nix
-    inputs.catppuccin.homeManagerModules.catppuccin
+    ./common/catppuccin.nix
+    inputs.catppuccin.homeModules.catppuccin
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
   ];
@@ -37,6 +38,8 @@
         openjdk17-bootstrap
       ];
     })
+
+    btop
     krita
     alejandra # formatter
     nixd # nix language server
@@ -74,15 +77,7 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "25.05";
 
-  gtk.enable = true;
-  # Catppuccin system config
-  catppuccin = {
+  gtk = {
     enable = true;
-    flavor = "mocha";
-    gtk.enable = true;
-
-    btop.enable = true;
-    fish.enable = false;
-    mpv.enable = false;
   };
 }
