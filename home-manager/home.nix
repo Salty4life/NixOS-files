@@ -26,11 +26,9 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [
-    vlc
     (discord.override {
       withMoonlight = true;
     })
-    wget
     (prismlauncher.override {
       jdks = with pkgs; [
         temurin-bin
@@ -38,6 +36,13 @@
         openjdk17-bootstrap
       ];
     })
+    (
+      bottles.override {
+        removeWarningPopup = true;
+      }
+    )
+    davinci-resolve
+    pcsx2
     rustdesk
     btop
     krita
@@ -49,6 +54,12 @@
     openscad
     wpsoffice
     vrcx
+    lutris
+    vlc
+    wget
+    xfce.xfce4-battery-plugin
+    samba
+    r2modman
   ];
 
   # Enable home-manager and git
@@ -80,6 +91,7 @@
   gtk = {
     enable = true;
   };
+
   # Enables Gnome Keyring, this is, for now, only to store SMB credentials
   services.gnome-keyring = {
     enable = true;
