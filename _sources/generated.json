@@ -1,0 +1,16 @@
+{
+    "better-calibrator": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "better-calibrator",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "sha256": "sha256-ZNHuoZwBqzhIZywx3OcF4T5vSh8HXdA8nTkfnb5F13Y=",
+            "type": "tarball",
+            "url": "https://github.com/TheBlueOompaLoompa/BetterCalibrator/releases/download/0.2.0/BetterCalibrator.zip"
+        },
+        "version": "0.2.0"
+    }
+}

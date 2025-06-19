@@ -60,6 +60,7 @@
     xfce.xfce4-battery-plugin
     samba
     r2modman
+    nvfetcher
   ];
 
   # Enable home-manager and git
