@@ -5,7 +5,8 @@
   osConfig,
   pkgs,
   ...
-}: {
+}:
+{
   # You can import other home-manager modules here
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
@@ -36,11 +37,9 @@
         openjdk17-bootstrap
       ];
     })
-    (
-      bottles.override {
-        removeWarningPopup = true;
-      }
-    )
+    (bottles.override {
+      removeWarningPopup = true;
+    })
     davinci-resolve
     pcsx2
     rustdesk
@@ -60,6 +59,7 @@
     xfce.xfce4-battery-plugin
     samba
     r2modman
+    nvfetcher
   ];
 
   # Enable home-manager and git
@@ -76,8 +76,13 @@
         # https://github.com/nix-community/vscode-nix-ide
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
-        "nix.serverSettings.nixd.formatting.command" = ["alejandra" "-" "--quiet"];
-        "nix.serverSettings.nixd.options.nixos.expr" = "(builtins.getFlake \"${osConfig.programs.nh.flake}\").nixosConfigurations.<name>.options";
+        "nix.serverSettings.nixd.formatting.command" = [
+          "alejandra"
+          "-"
+          "--quiet"
+        ];
+        "nix.serverSettings.nixd.options.nixos.expr" =
+          "(builtins.getFlake \"${osConfig.programs.nh.flake}\").nixosConfigurations.<name>.options";
       };
     };
   };
@@ -95,6 +100,9 @@
   # Enables Gnome Keyring, this is, for now, only to store SMB credentials
   services.gnome-keyring = {
     enable = true;
-    components = ["pkcs11" "secrets"]; #Adjust as needed
+    components = [
+      "pkcs11"
+      "secrets"
+    ]; # Adjust as needed
   };
 }
