@@ -35,9 +35,11 @@
     lutris
     vlc
     wget
-    xfce.xfce4-battery-plugin
-    samba
     r2modman
     nvfetcher
+    gnome-keyring
+    p7zip
+    zip
+    gnome-photos
   ];
 }
