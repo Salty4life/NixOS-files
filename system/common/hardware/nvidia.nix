@@ -1,4 +1,11 @@
 {...}: {
+  # Announces which drivers to enable
+  services.xserver.videoDrivers = ["nvidia" "amdgpu"];
+
+  # Enables the kernel modules for the graphics
+  hardware.graphics.enable = true;
+
+  # Configures the Nvidia Drivers
   hardware.nvidia = {
     modesetting.enable = true;
 
