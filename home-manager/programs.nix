@@ -41,5 +41,7 @@
     p7zip
     zip
     gnome-photos
+    obs-studio
+    firefox
   ];
 }
