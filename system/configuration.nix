@@ -99,9 +99,6 @@
   services.tlp.enable = true;
   services.tlp.settings.STOP_CHARGE_THRESH_BAT1 = 60;
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   #Install Tailscale VPN and enable routes from the network
   services.tailscale = {
     enable = true;
