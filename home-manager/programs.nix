@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.git.enable = true;
 
   # Add stuff for your user as you see fit:
@@ -6,6 +10,7 @@
   home.packages = with pkgs; [
     (discord.override {
       withMoonlight = true;
+      moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight-mod;
     })
     (prismlauncher.override {
       jdks = with pkgs; [
