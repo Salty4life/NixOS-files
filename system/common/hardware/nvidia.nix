@@ -10,14 +10,14 @@
     modesetting.enable = true;
 
     powerManagement.enable = true;
-    powerManagement.finegrained = true;
+    #powerManagement.finegrained = true;
 
     # Enables Nvidia GPU to be used as the primary rendering device
-    prime = {
-      reverseSync.enable = true;
-      nvidiaBusId = "PCI:1@0:0:0";
-      amdgpuBusId = "PCI:4@0:0:0";
-    };
+    #prime = {
+    #  sync.enable = true;
+    #  nvidiaBusId = "PCI:1@0:0:0";
+    #  amdgpuBusId = "PCI:4@0:0:0";
+    #};
     open = false;
 
     nvidiaSettings = true;
