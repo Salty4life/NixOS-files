@@ -30,9 +30,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Catppucin Userstyles - Thank u Diffy!
+    #    catppuccin-userstyles-nix = {
+    #      url = "github:different-name/catppuccin-userstyles-nix";
+    #      inputs.nixpkgs.follows = "nixpkgs";
+    #    };
+
     # Nixpkgs XR
     nixpkgs-xr = {
       url = "github:nix-community/nixpkgs-xr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Nix User Repository
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
