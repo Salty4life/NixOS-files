@@ -24,6 +24,8 @@
         removeWarningPopup = true;
       }
     )
+    # podman
+    # podman-tui
     davinci-resolve
     pcsx2
     rustdesk
@@ -41,6 +43,7 @@
     vlc
     wget
     r2modman
+    owmods-gui
     nvfetcher
     gnome-keyring
     p7zip
