@@ -30,7 +30,7 @@
     pcsx2
     rustdesk
     btop
-    krita
+    krita # Drawing Software (Need to look into ways of finegrain configuration through a nix file)
     alejandra # formatter
     nixd # nix language server
     protonmail-desktop
@@ -46,10 +46,10 @@
     owmods-gui
     nvfetcher
     gnome-keyring
-    p7zip
-    zip
-    gnome-photos
+    file-roller
+    photoqt
     obs-studio
     firefox
+    lshw
   ];
 }
