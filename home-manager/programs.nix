@@ -51,5 +51,8 @@
     obs-studio
     firefox
     lshw
+    nfs-utils
+    podman
+    podman-desktop
   ];
 }
