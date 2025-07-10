@@ -12,8 +12,6 @@
     ./hardware-configuration.nix
     ./common
 
-    #commented for possible incompatibility issues
-    #inputs.nixos-hardware.nixosModules.asus-fa507rm
     inputs.home-manager.nixosModules.home-manager
     inputs.catppuccin.nixosModules.catppuccin
   ];
@@ -54,6 +52,8 @@
   services.xserver.enable = true;
 
   # Enable the XFCE Desktop Environment.
+  # Note to self DON'T USE XFCE!
+  # It has HORRIBLE hotkey functionality
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
 
@@ -74,6 +74,7 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
+    wireplumber.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
@@ -94,10 +95,6 @@
     description = "salty";
     extraGroups = ["networkmanager" "wheel"];
   };
-
-  # Enable TLP to limit battery charging to 60% in order to protect the laptop battery
-  services.tlp.enable = true;
-  services.tlp.settings.STOP_CHARGE_THRESH_BAT1 = 60;
 
   #Install Tailscale VPN and enable routes from the network
   services.tailscale = {
