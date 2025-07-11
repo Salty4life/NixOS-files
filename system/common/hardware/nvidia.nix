@@ -5,9 +5,12 @@
   # Enables the kernel modules for the graphics
   hardware.graphics.enable = true;
 
+  # Enables OpenGL
+  hardware.opengl.enable = true;
+
   # Configures the Nvidia Drivers
   hardware.nvidia = {
-    # Modsetting is required
+    # Modsetting is required for all nVidia powered machines
     modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
@@ -30,13 +33,10 @@
     # YOU CAN'T USE BOTH SYNC AND OFFLOAD AT THE SAME TIME
     prime = {
       # Enables Sync mode (uses the Dedicated Nvidia GPU as the main display device)
-      #sync.enable = true;
+      sync.enable = true;
 
       #Enables Offload mode (Uses the integrated GPU as the main display device)
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+      #offload = {enable = true;enableOffloadCmd = true;};
 
       # CONFIGURE WITH THE CORRECT BUS ID OTHERWISE SHIT BREAKS!
       # Use "lshw -c display" to verify
