@@ -2,5 +2,6 @@
   imports = [
     ./games
     ./hardware
+    ./graphical
   ];
 }
