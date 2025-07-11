@@ -48,21 +48,6 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the XFCE Desktop Environment.
-  # Note to self DON'T USE XFCE!
-  # It has HORRIBLE hotkey functionality
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "pt";
-    variant = "";
-  };
-
   # Configure console keymap
   console.keyMap = "pt-latin1";
 
