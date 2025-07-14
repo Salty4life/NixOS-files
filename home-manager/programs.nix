@@ -24,8 +24,6 @@
         removeWarningPopup = true;
       }
     )
-    # podman
-    # podman-tui
     davinci-resolve
     pcsx2
     rustdesk
@@ -53,5 +51,6 @@
     lshw
     podman
     podman-desktop
+    drawpile
   ];
 }
