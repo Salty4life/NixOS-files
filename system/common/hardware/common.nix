@@ -5,7 +5,7 @@
     daemon.enable = true;
   };
 
-  boot.kernelModules = ["asus-nb-wmi"];
+  boot.kernelModules = ["asus-nb-wmi" "asus-armoury"];
   environment.systemPackages = with pkgs; [
     solaar
     logiops
