@@ -33,6 +33,7 @@
     nixd # nix language server
     protonmail-desktop
     protonvpn-gui
+    protonvpn-cli
     blender
     openscad
     wpsoffice
@@ -40,12 +41,9 @@
     lutris
     vlc
     wget
-    r2modman
+    r2modman # Mod loading client, "For some reason stuck on 3.2.0"
     owmods-gui
     nvfetcher
-    gnome-keyring
-    file-roller
-    photoqt
     obs-studio
     firefox
     lshw
