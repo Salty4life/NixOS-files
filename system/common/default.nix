@@ -1,7 +1,0 @@
-{
-  imports = [
-    ./games
-    ./hardware
-    ./graphical
-  ];
-}

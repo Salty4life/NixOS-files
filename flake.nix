@@ -31,10 +31,10 @@
     };
 
     # Catppucin Userstyles - Thank u Diffy!
-    #    catppuccin-userstyles-nix = {
-    #      url = "github:different-name/catppuccin-userstyles-nix";
-    #      inputs.nixpkgs.follows = "nixpkgs";
-    #    };
+    catppuccin-userstyles-nix = {
+      url = "github:different-name/catppuccin-userstyles-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Nixpkgs XR
     nixpkgs-xr = {
@@ -53,21 +53,33 @@
       url = "github:moonlight-mod/moonlight"; # Add `/develop` to the flake URL to use nightly.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # import modules recursively
+    import-tree.url = "github:vic/import-tree";
+
+    # manage steam game launch options and other local config
+    steam-config-nix = {
+      url = "github:different-name/steam-config-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {
+    nixosModules.alcaide = inputs.import-tree ./alcaide/nixos;
+    homeModules.alcaide = inputs.import-tree ./alcaide/home;
+
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       # FIXME replace with your hostname
-      padora-mobile = inputs.nixpkgs.lib.nixosSystem {
+      nau = inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           self = inputs.self;
         };
         # > Our main nixos configuration file <
         modules = [
-          ./system/configuration.nix
+          (inputs.import-tree ./hosts/nau)
         ];
       };
     };
