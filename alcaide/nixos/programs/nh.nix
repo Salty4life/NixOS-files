@@ -14,5 +14,15 @@
         extraArgs = "--keep-since 30d";
       };
     };
+        home-manager.sharedModules = lib.singleton (
+      { config, osConfig, ... }:
+      {programs.nh = {
+          enable = true;
+          package = lib.mkDefault osConfig.programs.nh.package;
+          flake = "${config.home.homeDirectory}/nix-files";
+        };
+  }
+  );
   };
-}
+  }
+

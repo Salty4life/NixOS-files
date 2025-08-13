@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  osConfig,
   pkgs,
   inputs,
   ...
@@ -14,13 +15,12 @@
 
       profiles.default = {
         extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
-          # keep-sorted start
+          jnoortheen.nix-ide
           blueglassblock.better-json5
           editorconfig.editorconfig
           ms-python.python
           prettiercode.code-prettier
           tamasfe.even-better-toml
-          # keep-sorted end
         ];
 
         userSettings = {
@@ -42,6 +42,11 @@
           "workbench.colorTheme" = "Catppuccin Mocha";
           "workbench.iconTheme" = "catppuccin-mocha";
           "workbench.startupEditor" = "none";
+          # https://github.com/nix-community/vscode-nix-ide
+          "nix.serverPath" = "nixd";
+          "nix.serverSettings.nixd.formatting.command" = ["alejandra" "-" "--quiet"];
+          "nix.serverSettings.nixd.options.nixos.expr" = "(builtins.getFlake \"${osConfig.programs.nh.flake}\").nixosConfigurations.<name>.options";
+
         };
       };
     };
