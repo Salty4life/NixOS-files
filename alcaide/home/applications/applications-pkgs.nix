@@ -33,7 +33,6 @@
       protonvpn-gui
       protonvpn-cli
       blender
-      wpsoffice
       vrcx
       vlc
       wget
@@ -44,6 +43,7 @@
       podman
       podman-desktop
       drawpile
+      gimp3
     ];
   };
 }
