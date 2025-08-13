@@ -9,7 +9,11 @@
         applications-pkgs.enable = true;
         vscodium.enable = true;
       };
+      games = {
+        games-pkgs.enable = true;
+        steam.enable = true;
+      };
       style.catppuccin.enable = true;
+    };
   };
-};
 }
