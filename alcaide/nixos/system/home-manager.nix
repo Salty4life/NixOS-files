@@ -13,7 +13,12 @@
 
   config = lib.mkIf config.alcaide.system.home-manager.enable {
     home-manager = {
-      extraSpecialArgs = {inherit inputs self;};
+      extraSpecialArgs = {
+        inherit 
+        inputs 
+        self
+        ;
+      };
       useGlobalPkgs = true;
     };
   };
