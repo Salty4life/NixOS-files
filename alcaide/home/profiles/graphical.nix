@@ -11,7 +11,6 @@
       };
       games = {
         games-pkgs.enable = true;
-        steam.enable = true;
       };
       style.catppuccin.enable = true;
     };
