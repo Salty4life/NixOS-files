@@ -15,7 +15,7 @@
       enable = true;
       cache.enable = true;
 
-      accent = "saphire";
+      accent = "sapphire";
       flavor = "mocha";
     };
   };
