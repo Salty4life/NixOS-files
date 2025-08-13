@@ -19,7 +19,7 @@
       )
       r2modman
       lutris
-      pcsx2-bin
+      pcsx2
       owmods-gui
     ];
   };
