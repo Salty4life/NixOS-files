@@ -13,6 +13,7 @@
       description = "salty";
       extraGroups = ["networkmanager" "wheel"];
     };
+    
     alcaide.system.home-manager.enable = true;
 
     home-manager.users.salty = {

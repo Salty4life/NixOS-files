@@ -12,7 +12,6 @@
     self.nixosModules.alcaide
     # keep-sorted end
   ];
-
   system.stateVersion = "25.05";
 
   networking.hostName = "nau";
@@ -22,6 +21,7 @@
   hardware.nvidia = {
     prime = {
       sync.enable = true;
+      offload.enable = false;
       # CONFIGURE WITH THE CORRECT BUS ID OTHERWISE SHIT BREAKS!
       # Use "lshw -c display" to verify
       # Note that the lshw command displays in hexadecimal, you need to convert to decimal to input it below
@@ -31,8 +31,13 @@
   };
 
   alcaide = {
+    profiles.graphical.enable = true;
     users.salty.enable = true;
-    hardware.nvidia.enable = true;
+    hardware = {
+      asus.enable = true;
+      nvidia.enable = true;
+      logitech.enable = true;
+    };
   };
 
   services.printing.enable = true;

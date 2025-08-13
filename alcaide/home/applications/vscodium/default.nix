@@ -24,7 +24,6 @@
         ];
 
         userSettings = {
-          # keep-sorted start block=yes
           "editor.fontFamily" = "'JetBrains Mono', 'monospace', monospace";
           "editor.fontLigatures" = true;
           "editor.formatOnSave" = true;
@@ -43,21 +42,14 @@
           "workbench.colorTheme" = "Catppuccin Mocha";
           "workbench.iconTheme" = "catppuccin-mocha";
           "workbench.startupEditor" = "none";
-          # keep-sorted end
         };
       };
     };
 
     xdg.mimeApps.defaultApplications = {
-      # keep-sorted start
       "application/json" = "codium.desktop";
       "text/markdown" = "codium.desktop";
       "text/plain" = "codium.desktop";
-      # keep-sorted end
     };
-
-    wayland.windowManager.hyprland.settings.env = [
-      "EDITOR,codium --wait"
-    ];
   };
 }
