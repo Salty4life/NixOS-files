@@ -11,6 +11,7 @@
       };
       games = {
         games-pkgs.enable = true;
+        prism.enable = true;
       };
       style.catppuccin.enable = true;
     };
