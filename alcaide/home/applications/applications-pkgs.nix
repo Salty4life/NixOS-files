@@ -4,8 +4,10 @@
   inputs,
   config,
   ...
-}: {
-  options.alcaide.applications.applications-pkgs.enable = lib.mkEnableOption "extra applications packages";
+}:
+{
+  options.alcaide.applications.applications-pkgs.enable =
+    lib.mkEnableOption "extra applications packages";
 
   config = lib.mkIf config.alcaide.applications.applications-pkgs.enable {
     # Git
@@ -18,11 +20,9 @@
         withMoonlight = true;
         moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
       })
-      (
-        bottles.override {
-          removeWarningPopup = true;
-        }
-      )
+      (bottles.override {
+        removeWarningPopup = true;
+      })
       davinci-resolve
       rustdesk
       btop
