@@ -7,6 +7,9 @@
 }:
 {
   config = lib.mkIf config.alcaide.applications.vscodium.enable {
+    home.packages = with pkgs; [
+      nixfmt
+    ];
     programs.vscode.profiles.default = {
       extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
         jnoortheen.nix-ide
@@ -34,7 +37,6 @@
 
         "nix.serverSettings.nixd.options.nixos.expr" =
           "(builtins.getFlake \"${config.programs.nh.flake}\").nixosConfigurations.<name>.options";
-        # keep-sorted end
       };
     };
   };
