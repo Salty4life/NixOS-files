@@ -44,6 +44,7 @@
       podman-desktop
       drawpile
       gimp3
+      waydroid
     ];
   };
 }
