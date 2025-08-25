@@ -1,0 +1,31 @@
+{
+  #lib,
+  inputs,
+  self,
+  ...
+}:
+{
+  imports = [
+    inputs.nixos-hardware.nixosModules.common-cpu-amd
+    inputs.nixos-hardware.nixosModules.common-gpu-amd
+    inputs.nixos-hardware.nixosModules.common-pc-ssd
+    self.nixosModules.alcaide
+  ];
+  system.stateVersion = "25.05";
+
+  networking.hostName = "padort";
+
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
+  alcaide = {
+    profiles.graphical.enable = true;
+    users.salty.enable = true;
+    hardware = {
+      amdgpu.enable = true;
+      logitech.enable = true;
+      bluetooth.enable = true;
+    };
+  };
+
+  services.printing.enable = true;
+}
