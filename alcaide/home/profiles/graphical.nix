@@ -6,8 +6,9 @@
     alcaide = {
       profiles.minimal.enable = true;
       applications = {
-        applications-pkgs.enable = true;
         vscodium.enable = true;
+        proton.enable = true;
+        applications-pkgs.enable = true;
       };
       games = {
         games-pkgs.enable = true;
