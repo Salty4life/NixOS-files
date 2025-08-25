@@ -3,7 +3,8 @@
   inputs,
   self,
   ...
-}: {
+}:
+{
   imports = [
     # keep-sorted start
     inputs.nixos-hardware.nixosModules.common-cpu-amd
@@ -17,7 +18,7 @@
   networking.hostName = "nau";
   console.keyMap = "pt-latin1";
 
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   hardware.nvidia = {
     prime = {
       sync.enable = true;
@@ -37,6 +38,7 @@
       asus.enable = true;
       nvidia.enable = true;
       logitech.enable = true;
+      bluetooth.enable = true;
     };
   };
 
