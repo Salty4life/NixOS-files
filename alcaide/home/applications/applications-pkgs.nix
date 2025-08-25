@@ -29,9 +29,6 @@
       krita # Drawing Software (Need to look into ways of finegrain configuration through a nix file)
       alejandra # formatter
       nixd # nix language server
-      protonmail-desktop
-      protonvpn-gui
-      protonvpn-cli
       blender
       vrcx
       vlc
@@ -45,6 +42,8 @@
       drawpile
       gimp3
       waydroid
+      libreoffice
+      comic-mandown
     ];
   };
 }
