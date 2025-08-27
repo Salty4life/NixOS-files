@@ -9,6 +9,8 @@
   config = lib.mkIf config.alcaide.applications.vscodium.enable {
     home.packages = with pkgs; [
       nixfmt
+      nixd
+      alejandra
     ];
     programs.vscode.profiles.default = {
       extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
