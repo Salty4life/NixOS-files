@@ -16,6 +16,11 @@
   system.stateVersion = "25.05";
 
   networking.hostName = "nau";
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "pt";
+    variant = "";
+  };
   console.keyMap = "pt-latin1";
 
   services.xserver.videoDrivers = [ "amdgpu" ];

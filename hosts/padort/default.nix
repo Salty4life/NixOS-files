@@ -14,6 +14,12 @@
   system.stateVersion = "25.05";
 
   networking.hostName = "padort";
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+  console.keyMap = "us";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
@@ -23,7 +29,6 @@
     hardware = {
       amdgpu.enable = true;
       logitech.enable = true;
-      bluetooth.enable = true;
     };
   };
 
