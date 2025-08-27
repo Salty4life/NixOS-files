@@ -13,7 +13,7 @@
       protonmail-desktop
       protonvpn-gui
       protonvpn-cli
-      proton-vpn-local-agent
+      #proton-vpn-local-agent
       proton-pass
     ];
   };
