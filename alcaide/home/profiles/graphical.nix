@@ -8,6 +8,7 @@
       applications = {
         vscodium.enable = true;
         proton.enable = true;
+        discord.enable = true;
         applications-pkgs.enable = true;
       };
       games = {
