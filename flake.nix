@@ -82,6 +82,17 @@
           (inputs.import-tree ./hosts/nau)
         ];
       };
+
+      padort = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          self = inputs.self;
+        };
+        # > Our main nixos configuration file <
+        modules = [
+          (inputs.import-tree ./hosts/padort)
+        ];
+      };
     };
   };
 }
