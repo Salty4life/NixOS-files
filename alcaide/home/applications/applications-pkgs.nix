@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  inputs,
   config,
   ...
 }:
@@ -16,10 +15,6 @@
     # Add stuff for your user as you see fit:
     # programs.neovim.enable = true;
     home.packages = with pkgs; [
-      (discord.override {
-        withMoonlight = true;
-        moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
-      })
       (bottles.override {
         removeWarningPopup = true;
       })
@@ -27,8 +22,6 @@
       rustdesk
       btop
       krita # Drawing Software (Need to look into ways of finegrain configuration through a nix file)
-      alejandra # formatter
-      nixd # nix language server
       blender
       vrcx
       vlc
