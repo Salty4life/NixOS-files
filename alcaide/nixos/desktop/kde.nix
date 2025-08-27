@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options.alcaide.desktop.kde.enable = lib.mkEnableOption "kde config";
 
   config = lib.mkIf config.alcaide.desktop.kde.enable {
@@ -14,11 +15,6 @@
 
       displayManager.sddm.wayland.enable = true;
 
-      # Configure keymap in X11
-      xserver.xkb = {
-        layout = "pt";
-        variant = "";
-      };
     };
 
     environment.systemPackages = with pkgs; [
