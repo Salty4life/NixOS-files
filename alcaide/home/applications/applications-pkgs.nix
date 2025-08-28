@@ -21,6 +21,7 @@
       davinci-resolve
       rustdesk
       btop
+      neofetch
       krita # Drawing Software (Need to look into ways of finegrain configuration through a nix file)
       blender
       vrcx
