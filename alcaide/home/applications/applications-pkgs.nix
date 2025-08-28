@@ -22,7 +22,7 @@
       rustdesk
       btop
       neofetch
-      krita # Drawing Software (Need to look into ways of finegrain configuration through a nix file)
+      krita
       blender
       vrcx
       vlc
