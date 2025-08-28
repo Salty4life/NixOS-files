@@ -39,6 +39,11 @@
     ];
   };
 
+  fileSystems."/home/salty/shared" = {
+    device = "/dev/disk/by-uuid/E680-6F67";
+    fsType = "exfat";
+  };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
