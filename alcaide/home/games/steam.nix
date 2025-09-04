@@ -5,7 +5,8 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.steam-config-nix.homeModules.default
   ];
@@ -18,7 +19,7 @@
       closeSteam = true;
 
       apps = {
-        # vrchat
+        # VRChat
         "438100" = {
           compatTool = "GE-Proton";
           launchOptions = pkgs.writeShellScriptBin "vrchat-wrapper" ''
