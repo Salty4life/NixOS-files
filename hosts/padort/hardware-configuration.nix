@@ -39,9 +39,9 @@
     ];
   };
 
-  fileSystems."/home/salty/shared" = {
-    device = "/dev/disk/by-uuid/E680-6F67";
-    fsType = "exfat";
+  fileSystems."/home/salty/storage" = {
+    device = "/dev/disk/by-uuid/24dda6d2-9fe6-46c5-8231-e7960e083065";
+    fsType = "ext4";
   };
 
   swapDevices = [ ];
