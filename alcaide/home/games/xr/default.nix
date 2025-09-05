@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  osConfig,
   pkgs,
   ...
 }:
@@ -111,18 +110,5 @@ in
         "${steamDir}/VRChat/OpenComposite/oculus_touch.json".source =
           ./opencomposite/vrchat/oculus_touch.json;
       };
-
-    # TODO temporary workaround until https://www.github.com/hyprwm/xdg-desktop-portal-hyprland/issues/329 is implemented properly
-    wayland.windowManager.hyprland.xdgDesktopPortalHyprland.settings = {
-      screencopy = {
-        custom_picker_binary = lib.getExe (
-          pkgs.writeShellApplication {
-            name = "hyprland-share-picker-xr";
-            runtimeInputs = [ osConfig.programs.hyprland.portalPackage ];
-            text = builtins.readFile ./hyprland-share-picker-xr.sh;
-          }
-        );
-      };
-    };
   };
 }
