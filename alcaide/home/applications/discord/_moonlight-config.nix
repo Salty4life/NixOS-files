@@ -50,7 +50,7 @@
       config = {
         paths = [
           "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css"
-          "~/.local/share/disblock-origin/theme.css"
+          "https://raw.codeberg.page/AllPurposeMat/Disblock-Origin/DisblockOrigin.theme.css"
         ];
       };
       enabled = true;
