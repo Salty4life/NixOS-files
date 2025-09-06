@@ -29,6 +29,7 @@
     hardware = {
       amdgpu.enable = true;
       logitech.enable = true;
+      bluetooth.enable = true;
     };
   };
 
