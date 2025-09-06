@@ -30,6 +30,7 @@
       amdgpu.enable = true;
       logitech.enable = true;
       bluetooth.enable = true;
+      otd.enable = true;
     };
   };
 
