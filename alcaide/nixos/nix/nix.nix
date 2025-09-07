@@ -3,7 +3,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options.alcaide.nix.nix.enable = lib.mkEnableOption "nix config";
 
   config = lib.mkIf config.alcaide.nix.nix.enable {
