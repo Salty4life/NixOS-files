@@ -26,6 +26,7 @@
   alcaide = {
     profiles.graphical.enable = true;
     users.salty.enable = true;
+    services.xr.enable = true;
     hardware = {
       amdgpu.enable = true;
       logitech.enable = true;
