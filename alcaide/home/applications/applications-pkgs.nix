@@ -38,6 +38,7 @@
       waydroid
       libreoffice
       comic-mandown
+      unityhub
     ];
   };
 }
