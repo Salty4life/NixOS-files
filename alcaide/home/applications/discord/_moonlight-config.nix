@@ -9,7 +9,7 @@
     callTimer = true;
     clearUrls = true;
     cloneExpressions = true;
-    colorConsistency = false;
+    colorConsistency = true;
     copyAvatarUrl = true;
     copyWebp = true;
     disableSentry = true;
