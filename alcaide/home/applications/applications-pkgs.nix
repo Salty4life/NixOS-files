@@ -39,6 +39,8 @@
       libreoffice
       comic-mandown
       unityhub
+      alcom
+      vrc-get
     ];
   };
 }
