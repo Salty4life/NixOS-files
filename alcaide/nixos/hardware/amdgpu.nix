@@ -12,8 +12,19 @@
 
     # Enables the kernel modules for the graphics
     hardware = {
-      graphics.enable = true;
+      graphics = {
+        enable = true;
+        extraPackages = with pkgs; [
+          rocmPackages.clr.icd
+          amdvlk
+        ];
+      };
     };
+
+    environment.systemPackages = with pkgs; [
+      clinfo
+      lact
+    ];
 
     # GUI tools
     systemd.packages = with pkgs; [
