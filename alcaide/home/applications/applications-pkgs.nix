@@ -41,6 +41,7 @@
       unityhub
       alcom
       vrc-get
+      kdenlive
     ];
   };
 }
