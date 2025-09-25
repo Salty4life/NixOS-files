@@ -18,7 +18,6 @@
       (bottles.override {
         removeWarningPopup = true;
       })
-      davinci-resolve
       rustdesk
       btop
       neofetch
