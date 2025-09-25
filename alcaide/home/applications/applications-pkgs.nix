@@ -40,6 +40,7 @@
       unityhub
       alcom
       vrc-get
+      orca-slicer
     ];
   };
 }
