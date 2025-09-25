@@ -24,10 +24,14 @@
   console.keyMap = "pt-latin1";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
+
   hardware.nvidia = {
     prime = {
-      sync.enable = true;
-      offload.enable = false;
+      sync.enable = false;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
       # CONFIGURE WITH THE CORRECT BUS ID OTHERWISE SHIT BREAKS!
       # Use "lshw -c display" to verify
       # Note that the lshw command displays in hexadecimal, you need to convert to decimal to input it below
