@@ -18,7 +18,6 @@
       (bottles.override {
         removeWarningPopup = true;
       })
-      rustdesk
       btop
       neofetch
       krita
