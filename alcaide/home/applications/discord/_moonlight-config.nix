@@ -13,6 +13,9 @@
     copyAvatarUrl = true;
     copyWebp = true;
     disableSentry = true;
+    dmCallLayout = true;
+    dmDates = true;
+    dmFavorites = true;
     domOptimizer = true;
     doubleClickActions = true;
     favouriteGifSearch = true;
