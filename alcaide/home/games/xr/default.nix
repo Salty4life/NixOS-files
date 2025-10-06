@@ -27,6 +27,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+
+    home.packages = with pkgs; [
+      wlx-overlay-s
+    ];
+
     xdg.desktopEntries =
       let
         vr-session-manager = pkgs.writeShellApplication {
