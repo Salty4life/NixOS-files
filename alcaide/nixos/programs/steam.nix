@@ -4,10 +4,8 @@
   config,
   pkgs,
   ...
-}: {
-  imports = [
-    inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
-  ];
+}:
+{
 
   options.alcaide.programs.steam.enable = lib.mkEnableOption "steam config";
 
@@ -17,7 +15,7 @@
 
       extraCompatPackages = with pkgs; [
         proton-ge-bin
-        proton-ge-rtsp-bin
+        inputs.nixpkgs-xr.packages.${pkgs.system}.proton-ge-rtsp-bin
       ];
     };
     hardware.steam-hardware.enable = true;
