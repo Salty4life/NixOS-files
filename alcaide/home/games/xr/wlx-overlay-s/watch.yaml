@@ -84,11 +84,11 @@ elements:
   - type: Label
     rect: [19, 90, 200, 50]
     corner_radius: 4
-    font_size: 36 # Use 46 for 24-hour time
+    font_size: 46 # Use 36 for 12-hour time
     fg_color: "#cdd6f4"
     source: Clock
-    format: "%I:%M %p" # 11:59 PM
-    # format: "%H:%M" # 23:59
+    format: "%H:%M" # 23:59
+    # format: "%I:%M %p" # 11:59 PM
 
   # local date
   - type: Label
@@ -113,11 +113,11 @@ elements:
   - type: Label
     rect: [260, 90, 200, 50]
     corner_radius: 4
-    font_size: 18 # Use 24 for 24-hour time
+    font_size: 24 # Use 18 for 12-hour time
     fg_color: "#f38ba8"
     source: Clock
     timezone: 0
-    format: "%I:%M %p" # 11:59 PM
+    format: "%H:%M"
     # format: "%H:%M" # 23:59
   - type: Label
     rect: [260, 68, 200, 50]
