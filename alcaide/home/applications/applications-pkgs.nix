@@ -40,6 +40,7 @@
       alcom
       vrc-get
       orca-slicer
+      zola
     ];
   };
 }
