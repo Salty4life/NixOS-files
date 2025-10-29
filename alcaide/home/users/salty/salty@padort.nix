@@ -12,5 +12,6 @@ lib.mkIf (username == "salty" && hostName == "padort") {
   alcaide = {
     profiles.graphical.enable = true;
     games.xr.enable = true;
+    applications.krita.enable = true;
   };
 }
