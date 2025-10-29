@@ -25,11 +25,11 @@ in
 
     xdg.configFile."moonlight-mod/stable.json".force = true;
 
-    home.packages = [
-      discordPackage
-      (pkgs.writeShellScriptBin "moonlight-config-updater" (
-        builtins.readFile ./moonlight-config-updater.sh
-      ))
+    home.packages = with pkgs; [
+      (discord.override {
+        withMoonlight = true;
+        inherit (inputs.moonlight.packages.${pkgs.system}) moonlight;
+      })
     ];
 
     xdg.autostart.entries = lib.singleton (
