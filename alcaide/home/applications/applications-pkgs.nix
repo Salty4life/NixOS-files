@@ -29,16 +29,16 @@
       obs-studio
       firefox
       lshw
-      podman
-      podman-desktop
-      drawpile
-      gimp3
+      #podman
+      #podman-desktop
+      #drawpile
+      #gimp3
       waydroid
       libreoffice
       comic-mandown
-      unityhub
-      alcom
-      vrc-get
+      #unityhub
+      #alcom
+      #vrc-get
       orca-slicer
       zola
     ];
