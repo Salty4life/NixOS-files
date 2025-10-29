@@ -42,7 +42,6 @@
 
   alcaide = {
     profiles.graphical.enable = true;
-    services.xr.enable = true;
     users.salty.enable = true;
     hardware = {
       asus.enable = true;
