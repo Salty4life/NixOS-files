@@ -9,18 +9,14 @@
     lib.mkEnableOption "extra applications packages";
 
   config = lib.mkIf config.alcaide.applications.applications-pkgs.enable {
-    # Git
     programs.git.enable = true;
 
-    # Add stuff for your user as you see fit:
-    # programs.neovim.enable = true;
     home.packages = with pkgs; [
       (bottles.override {
         removeWarningPopup = true;
       })
       btop
       neofetch
-      krita
       blender
       vrcx
       vlc
@@ -29,16 +25,9 @@
       obs-studio
       firefox
       lshw
-      #podman
-      #podman-desktop
-      #drawpile
-      #gimp3
       waydroid
       libreoffice
       comic-mandown
-      #unityhub
-      #alcom
-      #vrc-get
       orca-slicer
       zola
     ];
