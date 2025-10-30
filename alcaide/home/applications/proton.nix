@@ -12,7 +12,6 @@
     home.packages = with pkgs; [
       protonmail-desktop
       protonvpn-gui
-      protonvpn-cli
       proton-pass
     ];
   };
