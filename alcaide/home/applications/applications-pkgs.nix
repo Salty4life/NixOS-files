@@ -30,7 +30,6 @@
       comic-mandown
       orca-slicer
       zola
-      zoneminder
     ];
   };
 }
