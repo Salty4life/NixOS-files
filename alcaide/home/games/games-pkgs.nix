@@ -13,6 +13,7 @@
       lutris
       pcsx2
       owmods-gui
+      ckan
     ];
   };
 }
