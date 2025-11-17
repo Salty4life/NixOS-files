@@ -23,7 +23,7 @@
       wget
       nvfetcher
       obs-studio
-      firefox
+      firefox-bin
       lshw
       waydroid
       libreoffice
