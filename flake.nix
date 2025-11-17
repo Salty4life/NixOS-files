@@ -8,8 +8,8 @@
       "https://cuda-maintainers.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
     ];
   };
 
@@ -39,12 +39,6 @@
     # Catppuccin
     catppuccin = {
       url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # Catppucin Userstyles - Thank u Diffy!
-    catppuccin-userstyles-nix = {
-      url = "github:different-name/catppuccin-userstyles-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
