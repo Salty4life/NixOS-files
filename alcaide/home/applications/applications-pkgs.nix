@@ -16,18 +16,13 @@
         removeWarningPopup = true;
       })
       btop
-      neofetch
-      blender
       vrcx
       vlc
       wget
-      nvfetcher
       obs-studio
       firefox-bin
       lshw
-      waydroid
       libreoffice
-      comic-mandown
       orca-slicer
       zola
     ];
