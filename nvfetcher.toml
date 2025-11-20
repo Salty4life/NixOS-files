@@ -1,3 +1,0 @@
-[better-calibrator]
-src.github_tag = "TheBlueOompaLoompa/BetterCalibrator"
-fetch.tarball = "https://github.com/TheBlueOompaLoompa/BetterCalibrator/releases/download/$ver/BetterCalibrator.zip"
