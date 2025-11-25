@@ -25,6 +25,8 @@
       libreoffice
       orca-slicer
       zola
+      telegram-desktop
+      nsz
     ];
   };
 }
