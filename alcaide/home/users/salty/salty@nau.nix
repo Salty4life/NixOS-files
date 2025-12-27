@@ -11,5 +11,6 @@ in
 lib.mkIf (username == "salty" && hostName == "nau") {
   alcaide = {
     profiles.graphical.enable = true;
+    applications.krita.enable = true;
   };
 }
