@@ -27,6 +27,7 @@
       zola
       telegram-desktop
       nsz
+      xclicker
     ];
   };
 }
