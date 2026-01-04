@@ -12,6 +12,10 @@
 
     # Enables the kernel modules for the graphics
     hardware = {
+      amdgpu = {
+        overdrive.enable = true;
+        initrd.enable = true;
+      };
       graphics = {
         enable = true;
         extraPackages = with pkgs; [
