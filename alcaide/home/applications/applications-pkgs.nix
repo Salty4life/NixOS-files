@@ -28,6 +28,7 @@
       telegram-desktop
       nsz
       xclicker
+      gallery-dl
     ];
   };
 }
