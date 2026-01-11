@@ -12,12 +12,14 @@
 
     # Enables the kernel modules for the graphics
     hardware = {
+      firmware = with pkgs; [ linux-firmware ];
       amdgpu = {
         overdrive.enable = true;
         initrd.enable = true;
       };
       graphics = {
         enable = true;
+        enable32Bit = true;
         extraPackages = with pkgs; [
           rocmPackages.clr.icd
         ];
