@@ -22,13 +22,13 @@
       obs-studio
       firefox-bin
       lshw
-      libreoffice
       orca-slicer
       zola
       telegram-desktop
       nsz
       xclicker
       gallery-dl
+      onlyoffice-desktopeditors
     ];
   };
 }
