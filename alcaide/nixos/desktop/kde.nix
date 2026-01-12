@@ -18,6 +18,7 @@
     };
 
     environment.systemPackages = with pkgs; [
+      kdePackages.plasma-browser-integration # Media controlls for browser media, plus some other stuff
       kdePackages.kcalc # Calculator
       kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
       kdePackages.kcolorchooser # A small utility to select a color
