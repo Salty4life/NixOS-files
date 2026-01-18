@@ -69,19 +69,17 @@
         };
       };
 
-      wlx-overlay-s = {
-        description = "wlx-overlay-s";
+      wayvr = {
+        description = "wayvr";
         after = [ "wait-for-wivrn.service" ];
         requires = [ "wait-for-wivrn.service" ];
         partOf = [
-          # keep-sorted start
           "vr-session.service"
           "wivrn.service"
-          # keep-sorted end
         ];
 
         serviceConfig = {
-          ExecStart = "${lib.getExe pkgs.wlx-overlay-s} --openxr --replace";
+          ExecStart = "${lib.getExe pkgs.wayvr} --openxr --replace";
           Restart = "on-failure";
           ExecStopSignal = "SIGKILL";
           KillSignal = "SIGKILL";
@@ -93,10 +91,8 @@
       vr-session =
         let
           deps = [
-            # keep-sorted start
             "wivrn.service"
-            "wlx-overlay-s.service"
-            # keep-sorted end
+            "wayvr.service"
           ];
         in
         {
