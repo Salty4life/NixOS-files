@@ -29,7 +29,7 @@ in
   config = lib.mkIf cfg.enable {
 
     home.packages = with pkgs; [
-      wlx-overlay-s
+      wayvr
     ];
 
     xdg.desktopEntries =
@@ -99,9 +99,9 @@ in
       force = true;
     };
 
-    # https://github.com/galister/wlx-overlay-s/wiki
-    xdg.configFile."wlxoverlay" = {
-      source = ./wlx-overlay-s;
+    # https://github.com/wlx-team/wayvr/wiki
+    xdg.configFile."wayvr" = {
+      source = ./wayvr;
       recursive = true;
       force = true;
     };
