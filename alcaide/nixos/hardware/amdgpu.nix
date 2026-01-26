@@ -22,10 +22,7 @@
         enable32Bit = true;
         extraPackages = with pkgs; [
           rocmPackages.clr.icd
-          rocmPackages.amdsmi
-          amdenc
-          radeontop
-          libvdpau-va-gl
+          libva
         ];
       };
     };
