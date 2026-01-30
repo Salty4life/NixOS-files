@@ -32,7 +32,7 @@
     };
 
     environment.systemPackages = with pkgs; [
-      glxinfo
+      mesa
       vulkan-tools
       clinfo
       libva-utils
