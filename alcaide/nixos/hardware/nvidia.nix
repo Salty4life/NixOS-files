@@ -23,14 +23,21 @@
       };
     };
     environment.systemPackages = with pkgs; [
+      mesa
+      vulkan-tools
+      clinfo
+      libva-utils
+      lact
+      nvtopPackages.nvidia # (h)top like task monitor for AMD, Adreno, Intel and NVIDIA GPUs
       cudatoolkit
       lact
     ];
-    # GUI tools
-    systemd.packages = with pkgs; [
-      lact
-    ];
+
+    # LACT daemon activation
+    systemd.packages = with pkgs; [ lact ];
+    systemd.services.lactd.wantedBy = [ "multi-user.target" ];
 
     nixpkgs.config.cudaSupport = true;
+
   };
 }
