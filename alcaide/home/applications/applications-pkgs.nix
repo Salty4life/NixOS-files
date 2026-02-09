@@ -29,6 +29,8 @@
       xclicker
       gallery-dl
       onlyoffice-desktopeditors
+      chirp
+      openboardview
     ];
   };
 }
