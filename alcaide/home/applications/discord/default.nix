@@ -30,6 +30,7 @@ in
         withMoonlight = true;
         inherit (inputs.moonlight.packages.${pkgs.system}) moonlight;
       })
+      stoat-desktop
     ];
 
     xdg.autostart.entries = lib.singleton (
