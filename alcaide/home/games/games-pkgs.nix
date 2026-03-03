@@ -15,6 +15,8 @@
       owmods-gui
       ckan
       uzdoom
+      deadlock-mod-manager
+      vrcx
     ];
   };
 }

@@ -16,7 +16,6 @@
         removeWarningPopup = true;
       })
       btop
-      vrcx
       vlc
       wget
       obs-studio
