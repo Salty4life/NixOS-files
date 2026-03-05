@@ -15,7 +15,6 @@
       (bottles.override {
         removeWarningPopup = true;
       })
-      btop
       vlc
       wget
       obs-studio
