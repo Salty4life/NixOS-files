@@ -20,7 +20,6 @@
       obs-studio
       firefox-bin
       lshw
-      orca-slicer
       zola
       telegram-desktop
       nsz
