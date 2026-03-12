@@ -10,12 +10,14 @@
   config = lib.mkIf config.alcaide.desktop.kde.enable {
     services = {
       desktopManager.plasma6.enable = true;
-
-      displayManager.sddm.enable = true;
-
-      displayManager.sddm.wayland.enable = true;
+      xserver.enable = true;
+      displayManager.plasma-login-manager = {
+        enable = true;
+      };
 
     };
+
+    programs.xwayland.enable = true;
 
     environment.systemPackages = with pkgs; [
       kdePackages.plasma-browser-integration # Media controlls for browser media, plus some other stuff
@@ -24,7 +26,6 @@
       kdePackages.kcolorchooser # A small utility to select a color
       kdePackages.kolourpaint # Easy-to-use paint program
       kdePackages.ksystemlog # KDE SystemLog Application
-      kdePackages.sddm-kcm # Configuration module for SDDM
       unrar
       kdiff3 # Compares and merges 2 or 3 files or directories
       kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks
