@@ -9,6 +9,7 @@
         vscodium.enable = true;
         proton.enable = true;
         discord.enable = true;
+        davinci-resolve.enable = true;
         applications-pkgs.enable = true;
       };
       games = {
