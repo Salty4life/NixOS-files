@@ -3,13 +3,18 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   options.alcaide.hardware.asus.enable = lib.mkEnableOption "asus config";
 
   config = lib.mkIf config.alcaide.hardware.asus.enable {
-    boot.kernelModules = ["asus-nb-wmi" "asus-armoury"];
+    boot.kernelModules = [
+      "asus-nb-wmi"
+      "asus-armoury"
+    ];
     environment.systemPackages = with pkgs; [
       asusctl
+      amdctl
     ];
 
     programs.rog-control-center = {
