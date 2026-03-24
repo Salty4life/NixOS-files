@@ -14,13 +14,14 @@
       package = pkgs.vscodium;
 
       profiles.default = {
-        extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
-          blueglassblock.better-json5
-          editorconfig.editorconfig
-          ms-python.python
-          prettiercode.code-prettier
-          tamasfe.even-better-toml
-        ];
+        extensions =
+          with inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace; [
+            blueglassblock.better-json5
+            editorconfig.editorconfig
+            ms-python.python
+            prettiercode.code-prettier
+            tamasfe.even-better-toml
+          ];
 
         userSettings = {
           "editor.fontFamily" = "'JetBrains Mono', 'monospace', monospace";

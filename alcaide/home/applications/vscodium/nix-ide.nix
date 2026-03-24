@@ -13,9 +13,10 @@
       alejandra
     ];
     programs.vscode.profiles.default = {
-      extensions = with inputs.nix-vscode-extensions.extensions.${pkgs.system}.vscode-marketplace; [
-        jnoortheen.nix-ide
-      ];
+      extensions =
+        with inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace; [
+          jnoortheen.nix-ide
+        ];
 
       userSettings = {
         "nix.enableLanguageServer" = true;

@@ -15,7 +15,7 @@
 
       extraCompatPackages = with pkgs; [
         proton-ge-bin
-        inputs.nixpkgs-xr.packages.${pkgs.system}.proton-ge-rtsp-bin
+        inputs.nixpkgs-xr.packages.${pkgs.stdenv.hostPlatform.system}.proton-ge-rtsp-bin
       ];
     };
     hardware.steam-hardware.enable = true;
