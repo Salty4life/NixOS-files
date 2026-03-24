@@ -20,7 +20,7 @@ in
   config = lib.mkIf config.alcaide.applications.discord.enable {
     programs.moonlight = {
       enable = true;
-      configs.stable = import ./_moonlight-config.nix;
+      #configs.stable = import ./_moonlight-config.nix;
     };
 
     xdg.configFile."moonlight-mod/stable.json".force = true;
@@ -28,7 +28,7 @@ in
     home.packages = with pkgs; [
       (discord.override {
         withMoonlight = true;
-        inherit (inputs.moonlight.packages.${pkgs.system}) moonlight;
+        inherit (inputs.moonlight.packages.${pkgs.stdenv.hostPlatform.system}) moonlight;
       })
       stoat-desktop
     ];
