@@ -23,14 +23,13 @@ in
       #configs.stable = import ./_moonlight-config.nix;
     };
 
-    xdg.configFile."moonlight-mod/stable.json".force = true;
+    #xdg.configFile."moonlight-mod/stable.json".force = true;
 
     home.packages = with pkgs; [
       (discord.override {
         withMoonlight = true;
         inherit (inputs.moonlight.packages.${pkgs.stdenv.hostPlatform.system}) moonlight;
       })
-      stoat-desktop
     ];
 
     xdg.autostart.entries = lib.singleton (
