@@ -16,6 +16,7 @@
         removeWarningPopup = true;
       })
       vlc
+      gimp
       wget
       obs-studio
       firefox-bin
