@@ -23,7 +23,7 @@
     self.nixosModules.alcaide
     # keep-sorted end
   ];
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 
   networking.hostName = "nau";
   # Configure keymap in X11
