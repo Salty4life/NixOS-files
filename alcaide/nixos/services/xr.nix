@@ -12,8 +12,6 @@
       enable = true;
 
       openFirewall = true;
-      defaultRuntime = true;
-
       config = {
         enable = true;
         json = {

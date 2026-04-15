@@ -20,13 +20,14 @@
       wget
       obs-studio
       firefox-bin
+      ungoogled-chromium
       lshw
       zola
       telegram-desktop
       nsz
       xclicker
       gallery-dl
-      onlyoffice-desktopeditors
+      libreoffice-still
       chirp
       openboardview
     ];
