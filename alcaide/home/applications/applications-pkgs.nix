@@ -30,6 +30,7 @@
       libreoffice-still
       chirp
       openboardview
+      popsicle
     ];
   };
 }

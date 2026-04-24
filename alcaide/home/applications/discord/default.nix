@@ -20,10 +20,7 @@ in
   config = lib.mkIf config.alcaide.applications.discord.enable {
     programs.moonlight = {
       enable = true;
-      #configs.stable = import ./_moonlight-config.nix;
     };
-
-    #xdg.configFile."moonlight-mod/stable.json".force = true;
 
     home.packages = with pkgs; [
       (discord.override {
