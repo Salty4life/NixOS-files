@@ -5,21 +5,25 @@
   inputs,
   ...
 }:
+ let
+      inherit (pkgs.stdenv.hostPlatform) system;
+      inherit (inputs.nix-vscode-extensions.extensions.${system}) vscode-marketplace;
+    in
 {
   options.alcaide.applications.vscodium.enable = lib.mkEnableOption "vscodium config";
 
   config = lib.mkIf config.alcaide.applications.vscodium.enable {
+    
     programs.vscode = {
       enable = true;
       package = pkgs.vscodium;
 
       profiles.default = {
-        extensions =
-          with inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace; [
+        extensions = with vscode-marketplace; [
             blueglassblock.better-json5
             editorconfig.editorconfig
             ms-python.python
-            prettiercode.code-prettier
+            esbenp.prettier-vscode
             tamasfe.even-better-toml
           ];
 
@@ -51,7 +55,5 @@
       "text/markdown" = "codium.desktop";
       "text/plain" = "codium.desktop";
     };
-
-    home.file."${config.xdg.configHome}/VSCodium/User/settings.json".force = true;
   };
 }
