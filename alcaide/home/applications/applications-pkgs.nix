@@ -12,9 +12,9 @@
     programs.git.enable = true;
 
     home.packages = with pkgs; [
-      (bottles.override {
-        removeWarningPopup = true;
-      })
+      #(bottles.override {
+      #  removeWarningPopup = true;
+      #})
       vlc
       gimp
       wget
