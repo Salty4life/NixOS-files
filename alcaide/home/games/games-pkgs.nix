@@ -10,7 +10,7 @@
   config = lib.mkIf config.alcaide.games.games-pkgs.enable {
     home.packages = with pkgs; [
       r2modman
-      #lutris
+      lutris
       pcsx2
       owmods-gui
       ckan
