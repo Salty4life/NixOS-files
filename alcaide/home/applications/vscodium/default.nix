@@ -14,9 +14,8 @@
 
   config = lib.mkIf config.alcaide.applications.vscodium.enable {
     
-    programs.vscode = {
+    programs.vscodium = {
       enable = true;
-      package = pkgs.vscodium;
 
       profiles.default = {
         extensions = with vscode-marketplace; [

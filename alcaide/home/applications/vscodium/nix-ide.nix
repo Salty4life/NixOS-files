@@ -12,7 +12,7 @@
       nixd
       alejandra
     ];
-    programs.vscode.profiles.default = {
+    programs.vscodium.profiles.default = {
       extensions =
         with inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace; [
           jnoortheen.nix-ide

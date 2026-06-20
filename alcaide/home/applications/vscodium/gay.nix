@@ -4,7 +4,7 @@
   ...
 }: {
   config = lib.mkIf config.alcaide.applications.vscodium.enable {
-    programs.vscode.profiles.default.userSettings = {
+    programs.vscodium.profiles.default.userSettings = {
       "editor.guides.bracketPairs" = true;
 
       "editor.guides.bracketPairsHorizontal" = false;
