@@ -33,7 +33,7 @@
         "Video"
         "Graphics"
       ];
-      terminal = false;
+      terminal = true;
       startupNotify = true;
     };
 
