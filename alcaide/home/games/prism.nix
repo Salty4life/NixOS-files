@@ -14,6 +14,7 @@
           temurin-bin
           openjdk8-bootstrap
           openjdk17-bootstrap
+          openjdk25
         ];
       })
     ];
