@@ -11,6 +11,7 @@
         discord.enable = true;
         #davinci-resolve.enable = true;
         applications-pkgs.enable = true;
+        unity.enable = true;
       };
       games = {
         games-pkgs.enable = true;
