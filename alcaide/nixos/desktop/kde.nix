@@ -26,6 +26,7 @@
       kdePackages.kcolorchooser # A small utility to select a color
       kdePackages.kolourpaint # Easy-to-use paint program
       kdePackages.ksystemlog # KDE SystemLog Application
+      kdePackages.filelight # Disk Space usage visualizer
       unrar
       kdiff3 # Compares and merges 2 or 3 files or directories
       kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks
