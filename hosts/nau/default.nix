@@ -51,6 +51,7 @@
   };
 
   alcaide = {
+    services.xr.enable = true;
     profiles.graphical.enable = true;
     users.salty.enable = true;
     hardware = {

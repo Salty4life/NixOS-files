@@ -8,6 +8,7 @@
   options.alcaide.services.xr.enable = lib.mkEnableOption "xr config";
 
   config = lib.mkIf config.alcaide.services.xr.enable {
+    alcaide.hardware.slimetora.enable = true;
     services.wivrn = {
       enable = true;
 
