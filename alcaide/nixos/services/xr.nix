@@ -9,37 +9,71 @@
 
   config = lib.mkIf config.alcaide.services.xr.enable {
     alcaide.hardware.slimetora.enable = true;
-    services.wivrn = {
-      enable = true;
-
-      openFirewall = true;
-      config = {
+    services = {
+      wivrn = {
         enable = true;
-        json = {
-          bitrate =
-            let
-              Mbps = 100;
-            in
-            Mbps * 1000000;
+        openFirewall = true;
+        config = {
+          enable = true;
+          json = {
+            bitrate =
+              let
+                Mbps = 100;
+              in
+              Mbps * 1000000;
 
-          encoders = lib.singleton {
-            encoder = "vaapi";
-            codec = "h264";
-            width = 1.0;
-            height = 1.0;
-            offset_x = 0.0;
-            offset_y = 0.0;
+            encoders = lib.singleton {
+              encoder = "vaapi";
+              codec = "h264";
+              width = 1.0;
+              height = 1.0;
+              offset_x = 0.0;
+              offset_y = 0.0;
+            };
           };
         };
       };
     };
-
     systemd.user.services = {
+
+      slimevr-server = {
+        description = "SlimeVR server";
+        partOf = [ "vr-session.service" ];
+        wantedBy = [ "vr-session.service" ];
+        serviceConfig = {
+          ExecStart = "${lib.getExe pkgs.slimevr-server} run";
+          Restart = "on-failure";
+        };
+      };
+
+      slimetora = {
+        description = "SlimeTora HaritoraX bridge";
+        after = [ "slimevr-server.service" ];
+        requires = [ "slimevr-server.service" ];
+        partOf = [ "vr-session.service" ];
+        wantedBy = [ "vr-session.service" ];
+        serviceConfig = {
+          ExecStart = lib.getExe pkgs.slimetora;
+          Restart = "on-failure";
+        };
+      };
 
       # extends the service provided by services.wivrn
       # https://github.com/NixOS/nixpkgs/blob/adaa24fbf46737f3f1b5497bf64bae750f82942e/nixos/modules/services/video/wivrn.nix#L183-L213
+
       wivrn = {
+        requires = [ "slimevr-server.service" ];
         partOf = [ "vr-session.service" ];
+        wantedBy = [ "vr-session.service" ];
+
+        # hold activating until the openxr compositor ipc socket exists
+        serviceConfig.ExecStartPost = pkgs.writeShellScript "wait-wivrn" ''
+          for _ in $(seq 1 100); do
+            [ -S "$XDG_RUNTIME_DIR/wivrn/comp_ipc" ] && exit 0
+            sleep 0.1
+          done
+          exit 1
+        '';
       };
 
       wait-for-wivrn = {
@@ -92,6 +126,7 @@
           deps = [
             "wivrn.service"
             "wayvr.service"
+            "slimetora.service"
           ];
         in
         {

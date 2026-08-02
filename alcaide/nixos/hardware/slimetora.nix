@@ -7,14 +7,13 @@
 let
   cfg = config.alcaide.hardware.slimetora;
 
-  slimetora = pkgs.stdenv.mkDerivation rec {
-    pname = "slimetora";
-    version = "1.5.3"; # check https://github.com/OCSYT/SlimeTora/releases for latest
+  slimetora-app = pkgs.stdenv.mkDerivation rec {
+    pname = "slimetora-app";
+    version = "1.5.3";
 
     src = pkgs.fetchurl {
-      # TODO: confirm exact Linux asset filename on the releases page and update this
       url = "https://github.com/OCSYT/SlimeTora/releases/download/v${version}/SlimeTora-linux-x64.zip";
-      sha256 = "sha256-u6DssNUvnuk53dhflB+lu6vaDOJSvL1Z3hbw0USgNp0="; # `nixos-rebuild switch` will print the real one on first build
+      sha256 = "sha256-u6DssNUvnuk53dhflB+lu6vaDOJSvL1Z3hbw0USgNp0=";
     };
 
     nativeBuildInputs = with pkgs; [
@@ -22,6 +21,8 @@ let
       autoPatchelfHook
       wrapGAppsHook3
       makeWrapper
+      addDriverRunpath
+      asar
     ];
 
     buildInputs =
@@ -48,6 +49,7 @@ let
         nss
         pango
         systemd
+        stdenv.cc.cc.lib
       ]
       ++ (with pkgs.xorg; [
         libX11
@@ -61,14 +63,28 @@ let
         libxshmfence
       ]);
 
+    autoPatchelfIgnoreMissingDeps = [ "libc.musl-x86_64.so.1" ];
+
     sourceRoot = ".";
 
     installPhase = ''
             runHook preInstall
-            mkdir -p $out/opt/slimetora $out/bin
+            mkdir -p $out/opt/slimetora
             cp -r ./build/SlimeTora-linux-x64/* $out/opt/slimetora/
+            chmod -R u+w $out/opt/slimetora
             chmod +x $out/opt/slimetora/SlimeTora
-            makeWrapper $out/opt/slimetora/SlimeTora $out/bin/slimetora \
+
+            asar extract $out/opt/slimetora/resources/app.asar $out/opt/slimetora/resources/app
+            rm $out/opt/slimetora/resources/app.asar
+
+            # placeholder mount points for the bwrap binds in the `slimetora` wrapper
+            touch $out/opt/slimetora/config.json
+            mkdir -p $out/opt/slimetora/logs
+            
+            # Wrapped copy carries the gapps env (GTK theme/icon/schema vars)
+            # and --no-sandbox. Kept separate from bin/ on purpose: the outer
+            # bwrap script (below) is the thing users actually run.
+            makeWrapper $out/opt/slimetora/SlimeTora $out/opt/slimetora/.slimetora-wrapped \
               --add-flags "--no-sandbox"
 
             install -Dm644 /dev/stdin $out/share/applications/slimetora.desktop <<EOF
@@ -83,14 +99,28 @@ let
             runHook postInstall
     '';
 
+    postFixup = ''
+      addDriverRunpath $out/opt/slimetora/SlimeTora
+    '';
+
     meta = with lib; {
       description = "Connects HaritoraX trackers to the SlimeVR server";
       homepage = "https://github.com/OCSYT/SlimeTora";
       license = licenses.mit;
       platforms = [ "x86_64-linux" ];
-      mainProgram = "slimetora";
     };
   };
+
+  slimetora = pkgs.writeShellScriptBin "slimetora" ''
+    STATE_DIR="''${XDG_DATA_HOME:-$HOME/.local/share}/slimetora"
+    mkdir -p "$STATE_DIR/logs"
+    touch "$STATE_DIR/config.json"
+    exec ${pkgs.bubblewrap}/bin/bwrap \
+      --dev-bind / / \
+      --bind "$STATE_DIR/config.json" "${slimetora-app}/opt/slimetora/config.json" \
+      --bind "$STATE_DIR/logs" "${slimetora-app}/opt/slimetora/logs" \
+      "${slimetora-app}/opt/slimetora/.slimetora-wrapped" "$@"
+  '';
 in
 {
   options.alcaide.hardware.slimetora = {
@@ -98,12 +128,17 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = [
-      slimetora
-      pkgs.slimevr-server # already in nixpkgs, needed as the receiving server
+    nixpkgs.overlays = [
+      (final: prev: { inherit slimetora slimetora-app; })
     ];
 
-    # users.users.salty.extraGroups = [ "dialout" ]; # for GX(6/2) dongle serial access
+    environment.systemPackages = [
+      slimetora
+      slimetora-app # provides the .desktop entry
+      pkgs.slimevr
+    ];
+
+    services.udev.packages = [ pkgs.slimevr ];
 
     services.udev.extraRules = ''
       SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", GROUP="dialout", MODE="0660"
