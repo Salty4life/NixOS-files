@@ -138,6 +138,8 @@ in
       pkgs.slimevr
     ];
 
+    networking.firewall.allowedUDPPorts = [ 6969 ];
+
     services.udev.packages = [ pkgs.slimevr ];
 
     services.udev.extraRules = ''
