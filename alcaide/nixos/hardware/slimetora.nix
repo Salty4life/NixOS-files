@@ -51,7 +51,7 @@ let
         systemd
         stdenv.cc.cc.lib
       ]
-      ++ (with pkgs.xorg; [
+      ++ (with pkgs; [
         libX11
         libXcomposite
         libXdamage

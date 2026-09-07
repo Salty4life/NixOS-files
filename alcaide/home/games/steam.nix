@@ -16,7 +16,6 @@
   config = lib.mkIf config.alcaide.games.steam.enable {
     programs.steam.config = {
       enable = true;
-      closeSteam = true;
 
       apps = {
         # VRChat

@@ -2,14 +2,15 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.alcaide.system.home-manager.enable = lib.mkEnableOption "home-manager config";
 
   config = lib.mkIf config.alcaide.system.home-manager.enable {
-    # TODO: Set your username
     home = {
       username = "salty";
       homeDirectory = "/home/salty";
+      pointerCursor.enable = true;
     };
 
     # Enable home-manager and git

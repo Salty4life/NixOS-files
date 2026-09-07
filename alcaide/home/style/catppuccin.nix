@@ -4,7 +4,8 @@
   inputs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     inputs.catppuccin.homeModules.catppuccin
   ];
@@ -13,7 +14,12 @@
 
   config = lib.mkIf config.alcaide.style.catppuccin.enable {
     catppuccin = {
-      inherit (osConfig.catppuccin) enable accent flavor;
+      inherit (osConfig.catppuccin)
+        enable
+        autoEnable
+        accent
+        flavor
+        ;
       cursors = {
         inherit (osConfig.catppuccin) flavor;
         enable = true;

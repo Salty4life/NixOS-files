@@ -3,7 +3,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.catppuccin.nixosModules.catppuccin
   ];
@@ -13,6 +14,7 @@
   config = lib.mkIf config.alcaide.style.catppuccin.enable {
     catppuccin = {
       enable = true;
+      autoEnable = true;
       cache.enable = true;
 
       accent = "sapphire";

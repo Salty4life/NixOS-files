@@ -27,7 +27,7 @@
       nsz
       xclicker
       gallery-dl
-      libreoffice-still
+      libreoffice-stable
       chirp
       openboardview
       popsicle
