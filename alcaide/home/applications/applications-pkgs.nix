@@ -31,6 +31,7 @@
       chirp
       openboardview
       popsicle
+      orca-slicer
     ];
   };
 }
